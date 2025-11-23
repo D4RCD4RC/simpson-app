@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { PersonajeLayout } from './layouts/personajeLayout/personajeLayout';
 import { ByPersonajePage } from './pages/by-personaje-page/by-personaje-page';
-
+import { ByEpisodios } from './pages/by-episodios/by-episodios';
+import { ByLocation } from './pages/by-location/by-location';
+import { PersonajePage } from './components/personaje-page/personaje-page';
 
 export const personajeRoutes: Routes = [
     {
@@ -11,6 +13,18 @@ export const personajeRoutes: Routes = [
             {
                 path: 'by-personaje',
                 component: ByPersonajePage
+            },
+            {
+                path: 'by-episodios',
+                component: ByEpisodios
+            },
+            {
+                path: 'by-location',
+                component: ByLocation
+            },
+            {
+                path: 'by/:name',
+                component: PersonajePage
             },
             {
                 path: '**',
