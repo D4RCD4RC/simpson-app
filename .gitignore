@@ -6,7 +6,6 @@
 /out-tsc
 /bazel-out
 
-
 # Node
 /node_modules
 npm-debug.log
@@ -38,13 +37,13 @@ yarn-error.log
 testem.log
 /typings
 
-/.claude/*
-/.cursor/*
-/.gemini/*
-/.github/*
-/.junie/*
-/.windsurf/*
-
+# AI
+/.gemini/
+/.claude/
+/.cursor/
+/.junie/
+/.windsurf/
+/.github/
 
 # System files
 .DS_Store
