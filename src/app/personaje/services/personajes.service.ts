@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { PersonajeResponse } from '../interfaces/personaje.interface';
-import { Observable, tap } from 'rxjs';
+import { Personaje, PersonajeResponse } from '../interfaces/personaje.interface';
+import { catchError, map, Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 const baseUrl = environment.baseUrl;
@@ -19,8 +19,6 @@ export class PersonajesService {
     // ================== Traer Personajes desde API =======
     getPersonajes(options: Options): Observable<PersonajeResponse> {
         const { page = 1 } = options;
-
-
         return this.http.get<PersonajeResponse>(`${baseUrl}/characters`,
             {
                 params: {
@@ -31,4 +29,12 @@ export class PersonajesService {
             pipe(tap((resp) => console.log(resp)))
 
     }
+
+    // ================== Traer Personaje por ID desde API =======
+
+    getPersonajeById(Id: number): Observable<Personaje> {
+        return this.http.get<Personaje>(`${baseUrl}/characters/${Id}`);
+
+    }
+
 }

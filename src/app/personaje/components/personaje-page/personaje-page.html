@@ -1,1 +1,23 @@
-<p>personaje-page works!</p>,
+@if(personajeResource.isLoading()) {
+<div class="flex justify-center items-center h-screen">
+  <span class="loading loading-spinner loading-lg"></span>
+</div>
+}
+
+<!----- Personaje ----->
+
+@if(personajeResource.hasValue()) {
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <!----- Imagen ----->
+  <p>Imagenes tuanis</p>
+
+  <div>
+    <h2 class="text-2xl font-bold font-montserrat">
+      {{ personajeResource.value().name }}
+    </h2>
+    <div class="divider"></div>
+    <p>{{ personajeResource.value().phrases }}</p>
+  </div>
+</div>
+
+}

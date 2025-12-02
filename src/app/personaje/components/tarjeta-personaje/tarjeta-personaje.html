@@ -7,10 +7,15 @@
     />
   </figure>
   <div class="card-body items-center text-center">
-    <h2 class="card-title font-montserrat text-accent text-lg">{{ personaje().name }}</h2>
+    <h2
+      class="card-title font-montserrat text-accent text-lg cursor-pointer"
+      [routerLink]="['/personaje', personaje().id]"
+    >
+      {{ personaje().name }}
+    </h2>
     <p>{{ personaje().phrases | slice : 0 : 5 }}...</p>
     <div class="card-actions">
-      <button class="btn btn-primary" [routerLink]="['/personaje/by', personaje().name]">
+      <button class="btn btn-primary" [routerLink]="['/personaje', personaje().id]">
         Detalles
       </button>
     </div>

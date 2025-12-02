@@ -23,7 +23,7 @@ export const personajeRoutes: Routes = [
                 component: ByLocation
             },
             {
-                path: 'by/:name',
+                path: ':id',
                 component: PersonajePage
             },
             {
