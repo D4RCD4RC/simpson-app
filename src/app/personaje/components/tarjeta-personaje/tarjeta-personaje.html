@@ -1,14 +1,10 @@
 <div class="card bg-base-100 shadow-sm">
   <figure class="px-10 pt-10">
-    <img
-      [src]="personaje().portrait_path | personajeImage"
-      [alt]="personaje().name"
-      class="rounded-xl"
-    />
+    <image-personaje [personaje]="personaje()" />
   </figure>
   <div class="card-body items-center text-center">
     <h2
-      class="card-title font-montserrat text-accent text-lg cursor-pointer"
+      class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline"
       [routerLink]="['/personaje', personaje().id]"
     >
       {{ personaje().name }}
