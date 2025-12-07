@@ -9,7 +9,7 @@
     >
       {{ personaje().name }}
     </h2>
-    <p>{{ personaje().phrases | slice : 0 : 5 }}...</p>
+    <p>{{ personaje().phrases[0] | slice : 0 : 100 }}...</p>
     <div class="card-actions">
       <button class="btn btn-primary" [routerLink]="['/personaje', personaje().id]">
         Detalles

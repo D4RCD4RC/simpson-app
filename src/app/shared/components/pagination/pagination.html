@@ -1,0 +1,38 @@
+<div class="join flex justify-center items-center mt-4 mb-10">
+  <!-- Botón <<
+  (salta a primera página) -->
+  <button
+    class="join-item btn btn-square"
+    [disabled]="activePage() === 1"
+    (click)="goToPage(1)"
+    [routerLink]="[]"
+    [queryParams]="{ page: 1 }"
+  >
+    «
+  </button>
+
+  @for (p of getPagesList(); track $index) {
+  <button
+    class="join-item btn btn-square"
+    [class.btn-primary]="p === activePage()"
+    [disabled]="p === '...'"
+    (click)="onPageClick(p)"
+    [routerLink]="typeof p === 'number' ? [] : null"
+    [queryParams]="typeof p === 'number' ? { page: p } : null"
+  >
+    {{ p }}
+  </button>
+  }
+
+  <!-- Botón >>
+  (salta a última página) -->
+  <button
+    class="join-item btn btn-square"
+    [disabled]="activePage() === page()"
+    (click)="goToPage(page())"
+    [routerLink]="[]"
+    [queryParams]="{ page: page() }"
+  >
+    »
+  </button>
+</div>
