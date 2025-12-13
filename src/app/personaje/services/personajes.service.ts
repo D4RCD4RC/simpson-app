@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Personaje, PersonajeResponse } from '../interfaces/personaje.interface';
-import { catchError, map, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 const baseUrl = environment.baseUrl;
-const imageUrl = environment.baseUrlImage;
+
 
 interface Options {
     page?: number;
@@ -25,8 +25,7 @@ export class PersonajesService {
                     page,
                 }
             }
-        ).
-            pipe(tap((resp) => console.log(resp)))
+        )
 
     }
 

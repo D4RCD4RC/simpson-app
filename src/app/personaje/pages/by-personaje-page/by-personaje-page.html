@@ -2,14 +2,15 @@
 
 <buscar-personaje />
 
-<!--========== Tarjeta de personaje =========-->
+<!--========== Titulo =====================-->
 <h1 class="text-2xl font-bold mt-4 mb-4">
-  Todos los personajes.
+  Los Simpson:
   <span class="text-red-600" style="margin-left: 10px">
     Pagina: {{ paginationService.currentPage() }}
   </span>
 </h1>
 
+<!--========== Tarjeta de personaje =========-->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
   @for (personaje of personajeResource.value()?.results; track $index) {
 
@@ -17,6 +18,7 @@
   }
 </div>
 
+<!--========== Paginacion =====================-->
 <pagination
   [page]="personajeResource.value()?.pages ?? 1"
   [currentPage]="paginationService.currentPage()"

@@ -21,7 +21,6 @@ export class ByPersonajePage {
   personajesService = inject(PersonajesService);
   paginationService = inject(PaginationService);
 
-
   personajeResource = rxResource({
     params: () => ({ page: this.paginationService.currentPage() }),
     stream: ({ params }) => {
