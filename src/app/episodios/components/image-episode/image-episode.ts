@@ -1,8 +1,9 @@
 import { Component, input } from '@angular/core';
+import { PersonajeImagePipe } from "../../../shared/pipes/personaje-image.pipe";
 
 @Component({
   selector: 'image-episode',
-  imports: [],
+  imports: [PersonajeImagePipe],
   templateUrl: './image-episode.html',
 })
 export class ImageEpisode {

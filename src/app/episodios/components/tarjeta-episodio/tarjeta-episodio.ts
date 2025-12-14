@@ -1,12 +1,12 @@
 import { Component, input } from '@angular/core';
 import { Episodio } from '../../interface/episodio.interface';
 import { SlicePipe } from '@angular/common';
-import { PersonajeImagePipe } from "../../../shared/pipes/personaje-image.pipe";
+import { ImageEpisode } from "../image-episode/image-episode";
 
 
 @Component({
   selector: 'tarjeta-episodio',
-  imports: [SlicePipe, PersonajeImagePipe],
+  imports: [SlicePipe, ImageEpisode],
   templateUrl: './tarjeta-episodio.html',
 })
 export class TarjetaEpisodio {
