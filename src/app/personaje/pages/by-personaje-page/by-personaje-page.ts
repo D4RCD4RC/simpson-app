@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TarjetaPersonaje } from "../../components/tarjeta-personaje/tarjeta-personaje";
-import { BuscarPersonaje } from "../../components/buscar-personaje/buscar-personaje";
+import { BuscarPersonaje } from "../../../shared/components/buscar-personaje/buscar-personaje";
 import { PersonajesService } from '../../services/personajes.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { Pagination } from "../../../shared/components/pagination/pagination";

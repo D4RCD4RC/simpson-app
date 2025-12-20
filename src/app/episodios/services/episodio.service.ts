@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { EpisodioResponse } from '../interface/episodio.interface';
+import { Episodio, EpisodioResponse } from '../interface/episodio.interface';
 
 const baseUrl = environment.baseUrl;
 
@@ -28,5 +28,11 @@ export class EpisodiosService {
                 }
             }
         ).pipe(tap(resp => console.log(resp)))
+    }
+
+    // ================== Traer Episodio por ID desde API =======
+
+    getEpisodioById(id: number): Observable<Episodio> {
+        return this.http.get<Episodio>(`${baseUrl}/episodes/${id}`)
     }
 }

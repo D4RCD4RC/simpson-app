@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BuscarPersonaje } from "../../components/buscar-personaje/buscar-personaje";
+import { BuscarPersonaje } from "../../../shared/components/buscar-personaje/buscar-personaje";
 
 @Component({
   selector: 'by-location',

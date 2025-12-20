@@ -1,4 +1,4 @@
-@if(personajeResource.isLoading()) {
+@if(episodeResource.isLoading()) {
 <div class="flex justify-center items-center h-screen">
   <span class="loading loading-spinner loading-lg"></span>
 </div>
@@ -6,19 +6,20 @@
 
 <!----- Personaje ----->
 
-@if (personajeResource.hasValue()) { @let personaje = personajeResource.value();
+@if (episodeResource.hasValue()) { @let episode = episodeResource.value();
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
   <!----- Imagen ----->
-  <image-personaje [personajeImage]="personaje" />
+  <image-episode [episodeImage]="episode" />
 
   <!----- Detalles ----->
   <div>
     <h2 class="text-2xl font-bold font-montserrat">
-      {{ personaje.name }}
+      {{ episode.name }}
     </h2>
+    <h3><span class="font-bold">Episodio:</span> {{ episode.episode_number }}</h3>
     <div class="divider"></div>
-    <p>{{ personaje.phrases }}</p>
+    <p>{{ episode.synopsis }}</p>
   </div>
 </div>
 }

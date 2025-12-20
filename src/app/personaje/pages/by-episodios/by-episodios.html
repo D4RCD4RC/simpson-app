@@ -1,3 +1,8 @@
+<!--========== Buscador =====================-->
+
+<buscar-personaje placeholder="Buscar Episodio"/>
+
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
   @for (episodio of episodiosResource.value()?.results; track $index) {
   <tarjeta-episodio [episodio]="episodio" />

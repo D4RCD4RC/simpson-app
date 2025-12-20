@@ -8,5 +8,5 @@ import { PersonajeImagePipe } from "../../../shared/pipes/personaje-image.pipe";
   templateUrl: './image-personaje.html',
 })
 export class ImagePersonaje {
-  personaje = input.required<Personaje>();
+  personajeImage = input.required<Personaje>();
 }
