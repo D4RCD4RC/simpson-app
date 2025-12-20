@@ -4,7 +4,10 @@
     <image-episode [episodeImage]="episodio()"></image-episode>
   </figure>
   <div class="card-body items-center text-center">
-    <h2 class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline">
+    <h2
+      class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline"
+      [routerLink]="['/personaje', 'episodes', episodio().id]"
+    >
       {{ episodio().name }}
     </h2>
     <h3><span class="font-bold">Episode</span> {{ episodio().episode_number }}</h3>
