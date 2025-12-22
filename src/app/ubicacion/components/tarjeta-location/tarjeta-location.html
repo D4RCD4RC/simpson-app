@@ -1,0 +1,20 @@
+<!--========== Tarjeta de episodios =========-->
+<div class="card bg-base-100 shadow-sm">
+  <figure class="px-10 pt-10">
+    <image-location [locationImage]="location()"></image-location>
+  </figure>
+  <div class="card-body items-center text-center">
+    <h2
+      class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline"
+      [routerLink]="['/personaje', 'locations', location().id]"
+    >
+      {{ location().name }}
+    </h2>
+    <p>{{ location().use }}</p>
+    <div class="card-actions">
+      <button class="btn btn-primary" [routerLink]="['/personaje', 'locations', location().id]">
+        Detalles
+      </button>
+    </div>
+  </div>
+</div>

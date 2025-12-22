@@ -1,3 +1,15 @@
-<buscar-personaje placeholder="Buscar Ubicacion"/>
-<p>by-location works!</p>
+<!--========== Buscador =====================-->
 
+<buscar-personaje placeholder="Buscar Ubicacion" />
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  @for (location of locationResource.value()?.results; track $index) {
+  <tarjeta-location [location]="location" />
+  }
+</div>
+
+<!--========== Paginacion =====================-->
+<pagination
+  [page]="locationResource.value()?.pages ?? 1"
+  [currentPage]="paginationService.currentPage()"
+/>

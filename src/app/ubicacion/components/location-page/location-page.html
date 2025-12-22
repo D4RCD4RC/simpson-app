@@ -1,4 +1,4 @@
-@if(episodeResource.isLoading()) {
+@if(locationResource.isLoading()) {
 <div class="flex justify-center items-center h-screen">
   <span class="loading loading-spinner loading-lg"></span>
 </div>
@@ -6,22 +6,23 @@
 
 <!----- Personaje ----->
 
-@if (episodeResource.hasValue()) { @let episode = episodeResource.value();
+@if (locationResource.hasValue()) { @let location = locationResource.value();
 
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
   <!----- Imagen ----->
-  <image-episode [episodeImage]="episode" />
+  <image-location [locationImage]="location" />
 
   <!----- Detalles ----->
   <div>
     <h2 class="text-2xl font-bold font-montserrat">
-      {{ episode.name }}
+      {{ location.name }}
       <br />
     </h2>
-    <h3><span class="font-bold">Season:</span> {{ episode.season }}</h3>
-    <h4><span class="font-bold">Episode:</span> {{ episode.episode_number }}</h4>
+
+    <h3><span class="font-bold">Town:</span> {{ location.town }}</h3>
+
     <div class="divider"></div>
-    <p>{{ episode.synopsis }}</p>
+    <p>{{ location.use }}</p>
   </div>
 </div>
 }

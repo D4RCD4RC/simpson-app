@@ -5,6 +5,7 @@ import { ByEpisodios } from './pages/by-episodios/by-episodios';
 import { ByLocation } from './pages/by-location/by-location';
 import { PersonajePage } from './components/personaje-page/personaje-page';
 import { EpisodePage } from '../episodios/components/episode-page/episode-page';
+import { LocationPage } from '../ubicacion/components/location-page/location-page';
 
 export const personajeRoutes: Routes = [
     {
@@ -26,6 +27,10 @@ export const personajeRoutes: Routes = [
             {
                 path: 'episodes/:id',
                 component: EpisodePage,
+            },
+            {
+                path: 'locations/:id',
+                component: LocationPage,
             },
             {
                 path: ':id',
