@@ -1,15 +1,22 @@
 <!--========== Buscador =====================-->
 
-<buscar-personaje placeholder="Buscar Episodio" />
+<buscar-personaje (value)="onSearch($event)" placeholder="Buscar Episodio por nombre" />
 
+<h1 class="text-2xl font-bold mt-4 mb-4">Episodios</h1>
+
+@if (isLoading()) {
+<div class="flex justify-center items-center my-10">
+  <span class="loading loading-spinner loading-lg"></span>
+</div>
+} @if (!isLoading()) {
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-  @for (episodio of episodiosResource.value()?.results; track $index) {
-  <tarjeta-episodio [episodio]="episodio" />
+  @for (episodios of episodiosFiltrados(); track episodios.id) {
+  <tarjeta-episodio [episodio]="episodios" />
   }
 </div>
-
-<!--========== Paginacion =====================-->
+} @if (!searchTerm()) {
 <pagination
   [page]="episodiosResource.value()?.pages ?? 1"
   [currentPage]="paginationService.currentPage()"
 />
+}

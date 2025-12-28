@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PaginationService {
+
     private activatedRoute = inject(ActivatedRoute);
     private router = inject(Router);
 
@@ -17,7 +18,7 @@ export class PaginationService {
         }
     );
 
-    // ✅ NUEVO
+    // ===== NUEVO =====
     resetPage() {
         this.router.navigate([], {
             queryParams: { page: 1 },

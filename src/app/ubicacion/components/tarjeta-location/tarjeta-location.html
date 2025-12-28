@@ -6,13 +6,13 @@
   <div class="card-body items-center text-center">
     <h2
       class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline"
-      [routerLink]="['/personaje', 'locations', location().id]"
+      [routerLink]="['/simpsons', 'locations', location().id]"
     >
       {{ location().name }}
     </h2>
     <p>{{ location().use }}</p>
     <div class="card-actions">
-      <button class="btn btn-primary" [routerLink]="['/personaje', 'locations', location().id]">
+      <button class="btn btn-primary" [routerLink]="['/simpsons', 'locations', location().id]">
         Detalles
       </button>
     </div>

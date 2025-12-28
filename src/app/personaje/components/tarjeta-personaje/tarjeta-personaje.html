@@ -5,15 +5,13 @@
   <div class="card-body items-center text-center">
     <h2
       class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline"
-      [routerLink]="['/personaje', personaje().id]"
+      [routerLink]="['/simpsons', personaje().id]"
     >
       {{ personaje().name }}
     </h2>
     <p>{{ personaje().phrases[0] | slice : 0 : 100 }}...</p>
     <div class="card-actions">
-      <button class="btn btn-primary" [routerLink]="['/personaje', personaje().id]">
-        Detalles
-      </button>
+      <button class="btn btn-primary" [routerLink]="['/simpsons', personaje().id]">Detalles</button>
     </div>
   </div>
 </div>

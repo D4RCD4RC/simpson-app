@@ -6,14 +6,14 @@
   <div class="card-body items-center text-center">
     <h2
       class="card-title font-montserrat text-accent text-lg cursor-pointer hover:underline"
-      [routerLink]="['/personaje', 'episodes', episodio().id]"
+      [routerLink]="['/simpsons', 'episodes', episodio().id]"
     >
       {{ episodio().name }}
     </h2>
     <h3><span class="font-bold">Episode</span> {{ episodio().episode_number }}</h3>
     <p>{{ episodio().synopsis | slice : 0 : 70 }}...</p>
     <div class="card-actions">
-      <button class="btn btn-primary" [routerLink]="['/personaje', 'episodes', episodio().id]">
+      <button class="btn btn-primary" [routerLink]="['/simpsons', 'episodes', episodio().id]">
         Detalles
       </button>
     </div>

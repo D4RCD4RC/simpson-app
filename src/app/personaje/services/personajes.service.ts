@@ -12,6 +12,7 @@ interface Options {
 
 @Injectable({ providedIn: 'root' })
 export class PersonajesService {
+
     private http = inject(HttpClient);
     private allPersonajesCache: Personaje[] | null = null;
 

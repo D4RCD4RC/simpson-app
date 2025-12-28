@@ -8,7 +8,7 @@ export const routes: Routes = [
         component: HomePage
     },
     {
-        path: 'personaje',
+        path: 'simpsons',
         loadChildren: () => import('./personaje/personaje.routes')
     },
     {

@@ -1,12 +1,12 @@
-import { Component, effect, Input, output, signal } from '@angular/core';
+import { Component, effect, Input, OnDestroy, output, signal } from '@angular/core';
 
 @Component({
   selector: 'buscar-personaje',
   imports: [],
   templateUrl: './buscar-personaje.html',
 })
-export class BuscarPersonaje {
-  @Input() placeholder: string = 'Buscar Personaje';
+export class BuscarPersonaje implements OnDestroy {
+  @Input() placeholder: string = '';
   value = output<string>();
 
   private term = signal('');
@@ -17,7 +17,7 @@ export class BuscarPersonaje {
     effect(() => {
       const current = this.term();
 
-      // ignorar primera ejecución
+      // ===== ignorar primera ejecución =====
       if (!this.initialized) {
         this.initialized = true;
         return;
@@ -34,6 +34,9 @@ export class BuscarPersonaje {
     this.term.set(value);
   }
 
+  ngOnDestroy() {
+    clearTimeout(this.timeoutId);
+  }
 
 }
 
