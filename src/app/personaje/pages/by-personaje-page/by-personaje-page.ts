@@ -6,6 +6,7 @@ import { rxResource } from '@angular/core/rxjs-interop';
 import { Pagination } from "../../../shared/components/pagination/pagination";
 import { PaginationService } from '../../../shared/components/pagination/pagination.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-by-personaje-page',
@@ -54,18 +55,43 @@ export class ByPersonajePage {
     });
   }
 
+  // resource de búsqueda global
+  searchResource = rxResource({
+    params: () => ({ term: this.searchTerm() }),
+    defaultValue: [],
+    stream: ({ params }) => {
+      if (!params.term) return of([]);
+      return this.personajesService.getAllPersonajes();
+    },
+  });
+
   // Lista filtrada en frontend
   personajesFiltrados = computed(() => {
-    const term = this.searchTerm();
-    const personajes = this.personajeResource.value()?.results ?? [];
-    if (!term) return personajes;
+    const term = this.normalize(this.searchTerm());
 
-    return personajes.filter(p =>
-      p.name.toLowerCase().includes(term)
-    );
+    //  búsqueda global
+    if (term) {
+      return this.searchResource.value().filter(p =>
+        this.normalize(p.name).includes(term)
+      );
+    }
+
+    //  listado normal paginado
+    return this.personajeResource.value()?.results ?? [];
   });
 
   // Loading
   isLoading = computed(() => this.personajeResource.isLoading());
+
+
+  // esto podria ser un helper
+  private normalize(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD')                 // separa acentos
+      .replace(/[\u0300-\u036f]/g, '')  // elimina acentos
+      .replace(/\s+/g, ' ')             // espacios dobles
+      .trim();
+  }
 }
 
